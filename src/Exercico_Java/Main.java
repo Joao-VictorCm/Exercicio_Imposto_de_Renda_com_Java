@@ -1,15 +1,29 @@
 package Exercico_Java;
 
+import java.util.Scanner;
+
 public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub]
+		Scanner sc = new Scanner(System.in);
 
-		double rendaAnualSalario = 48000.00;
-		double prestacaoServico = 0.00;
-		double rendaAnualGanhoCapital = 800.00;
-		double gastoMedicos = 400.00;
-		double gastoEducacionais = 5400.00;
+		System.out.println("Bem vindo ao IRFácil");
+		System.out.println("Digite sua renda anual com sálario:");
+		double rendaAnualSalario;
+		rendaAnualSalario = sc.nextDouble();
+		System.out.println("Sua renda anual com prestação de serviço:");
+		double prestacaoServico;
+		prestacaoServico = sc.nextDouble();
+		System.out.println("Sua renda anual com ganho de capital:");
+		double rendaAnualGanhoCapital;
+		rendaAnualGanhoCapital = sc.nextDouble();
+		System.out.println("Suas despesas com medicos:");
+		double gastoMedicos;
+		gastoMedicos = sc.nextDouble();
+		System.out.println("Suas despesas escolares:");
+		double gastoEducacionais;
+		gastoEducacionais = sc.nextDouble();
 
 		double impostoSalario = 00.00;
 
@@ -36,14 +50,23 @@ public class Main {
 		} else if (totalDedutiveis < impostoBruto * 0.30) {
 			maximoDedutiveis = impostoBruto - maximoDedutiveis;
 		}
+		
+		double impostoDevido = impostoBruto - maximoDedutiveis;
 
-		System.out.println(impostoSalario);
-		System.out.println(impostoPrestacaoServico);
-		System.out.println(impostoGanhoCapital);
-
-		System.out.println(impostoBruto);
-		System.out.println(totalDedutiveis);
-		System.out.println(maximoDedutiveis);
+		System.out.println("RELATÓRIO DE IMPOSTO DE RENDA.\n");
+		System.out.println("CONSOLIDADO DE RENDA:");
+		System.out.println("Imposto sobre o salário: " +impostoSalario);
+		System.out.println("Imposto sobre serviçõs: " +impostoPrestacaoServico);
+		System.out.println("Imposto sobre ganho de capital: " +impostoGanhoCapital+"\n");
+		System.out.println("DEDUÇÕES:");
+		System.out.println("Máximo dedutível: "+maximoDedutiveis);
+		System.out.println("Gastos dedutíveis: "+totalDedutiveis+"\n");
+		System.out.println("RESUMO:");
+		System.out.println("Imposto bruto total: "+impostoBruto);
+		System.out.println("Abatimento: " +maximoDedutiveis);
+		System.out.println("Imposto devido: "+impostoDevido);
+		
+		sc.close();
 
 	}
 }
